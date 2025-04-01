@@ -18,11 +18,9 @@ pip install dbqna
 ```
 
 ## Requirements
-- Python 3.6 or higher
+- Python 3.8 or higher
 - Required database drivers:
   - `psycopg2` for PostgreSQL
-  - `pymysql` for MySQL
-  - `pymongo` for MongoDB
 - OpenAI API key (for using the GPT model)
 
 ## Setup
