@@ -1,92 +1,92 @@
-#DBBot
-DBBot is an AI-driven Python library that allows users to convert natural language queries into SQL queries using OpenAI’s AutoGen and seamlessly interact with databases. It's designed to help developers and data analysts quickly retrieve and manipulate data by simply asking questions in plain English.
+# DBBot
 
-Features
-AI-driven query generation: Convert natural language questions into valid SQL queries using AutoGen.
+DBBot is an AI-driven Python library that converts natural language queries into SQL queries using OpenAI’s AutoGen, enabling seamless interaction with databases. It empowers developers and data analysts to retrieve and manipulate data effortlessly using plain English queries.
 
-Supports multiple databases: Works with PostgreSQL, MySQL, and MongoDB.
+## Features
+- **AI-Driven Query Generation**: Converts natural language questions into valid SQL queries using AutoGen.
+- **Multi-Database Support**: Works with PostgreSQL, MySQL, and MongoDB.
+- **Seamless Integration**: Easily integrates with your existing Python projects.
+- **Flexible Setup**: Users provide their own database and OpenAI credentials.
+- **Extensible**: Allows adding support for more databases or customizing AI behavior.
+- **Logging & Debugging**: Built-in features to help troubleshoot queries.
 
-Seamless integration: Easily integrates with your existing Python projects.
+## Installation
+Install DBBot using pip:
 
-Flexible setup: Users can provide their own database and OpenAI credentials.
-
-Extensible: Add support for more databases or customize the AI’s behavior.
-
-Installation
-To install DBBot, run the following command:
-
-bash
-Copy
-Edit
+```bash
 pip install dbqna
-Requirements
-Python 3.6 or higher
+```
 
-psycopg2 for PostgreSQL, pymysql for MySQL, or pymongo for MongoDB
+## Requirements
+- Python 3.6 or higher
+- Required database drivers:
+  - `psycopg2` for PostgreSQL
+  - `pymysql` for MySQL
+  - `pymongo` for MongoDB
+- OpenAI API key (for using the GPT model)
 
-OpenAI API key (for using the GPT model)
+## Setup
+### Database Credentials
+Provide the following details for database connection:
+- **Host**
+- **Port**
+- **Database Name**
+- **User**
+- **Password**
 
-Setup
-Database credentials: You'll need to provide the following database connection details:
+### OpenAI Credentials
+You'll need an OpenAI API key and additional configurations:
+- **API Key**
+- **Base URL**
+- **API Version**
+- **Deployment Name**
 
-Host
+You can set these as environment variables in a `.env` file or provide them directly in the code.
 
-Port
+## Usage
+### 1. Initialize DBBot with OpenAI Credentials
 
-Database name
+```python
+from dbqna import DBQnA
 
-User
-
-Password
-
-OpenAI credentials: You’ll need an OpenAI API key, base URL, version, and deployment name for GPT integration.
-
-Environment Variables: Set your credentials in the .env file or provide them directly when initializing the DBBot class.
-
-Usage Example
-1. Initialize DBBot with credentials
-python
-Copy
-Edit
-from dbqna import DBBot
-
-db_bot = DBBot(
+db_bot = DBQnA(
     azure_api_key="your-azure-api-key",
     azure_api_base="your-azure-api-base",
-    azure_api_version="ver",
-    azure_deployment_name="name"
+    azure_api_version="your-api-version",
+    azure_deployment_name="your-deployment-name"
 )
+```
 
-# Query example
-query = "how many users signed up this month?"
-result = await db_bot.query_database(query)
-print(result)
-2. Provide Database Credentials
-python
-Copy
-Edit
+### 2. Provide Database Credentials
+
+```python
+from dbqna import DBHelper
+
 db_helper = DBHelper(
     host="localhost",
     port="5432",
-    database="Database",
+    database="your-database",
     user="postgres",
-    password="postgres"
+    password="your-password"
 )
-3. Query the database using natural language
-Simply pass your query as a string to the query_database function.
+```
 
-python
-Copy
-Edit
-result = await db_bot.query_database("how many work orders are there for tenant 1289?")
-4. Response Example
-bash
-Copy
-Edit
+### 3. Query the Database Using Natural Language
+
+```python
+query = "how many work orders are there for tenant 1289?"
+result = await db_bot.query_database(query)
+print(result)
+```
+
+### 4. Example Response
+
+```bash
 Result: 
 [
     ('work_order_count', 35)
 ]
+```
 
-Contributing
-Feel free to fork this repository, open issues, and submit pull requests. All contributions are welcome!
+## Contributing
+We welcome contributions! Feel free to fork the repository, open issues, or submit pull requests to enhance DBBot.

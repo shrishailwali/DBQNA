@@ -6,7 +6,7 @@ from dbqna.db_helper import execute_query, get_database_schema
 from autogen_core import CancellationToken
 from autogen_agentchat.messages import TextMessage
 
-class DBBot:
+class AIDBBot:
     def __init__(self, azure_api_key, azure_api_base, azure_api_version, azure_deployment_name, model):
         """Initialize DBQnA with Azure OpenAI credentials"""
         self.model_client = AzureOpenAIChatCompletionClient(

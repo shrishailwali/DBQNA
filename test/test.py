@@ -1,19 +1,19 @@
 import asyncio
-from dbqna import DBBot
+from dbqna import AIDBBot
 
 
 host="localhost",
 port=5432,
-database="database",
+database="cmms",
 user="postgres",
 password="postgres"
 
 
 # Set up AI Connection
-dbqna = DBBot(
+dbqna = AIDBBot(
     azure_api_key="aaaaa",
     azure_api_base="bbbbb",
-    azure_api_version="ccccc",
+    azure_api_version="cccccc",
     azure_deployment_name="ddddd",
     model="eeeee"
 )

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="DBBot", 
+    name="AIDBBot", 
     version="0.1.0", 
     author="Shrishail",
     author_email="shrishail.dev@gmail.com",
